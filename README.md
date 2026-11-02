@@ -98,7 +98,7 @@ Set-Location .\backend
 .\.venv\Scripts\python.exe -m app.auth.bootstrap_admin
 ```
 
-The command interactively asks for the administrator name, email address, password, and password confirmation. The password must be 12â€“128 characters. Password entry is private through Python's `getpass`; it is stored as an Argon2 hash.
+The command interactively asks for the administrator name, email address, password, and password confirmation. The password must be 12–128 characters. Password entry is private through Python's `getpass`; it is stored as an Argon2 hash.
 
 This bootstrap process can create only one administrator. It checks for an existing administrator after collecting and validating the entered values. If one already exists, the command exits without creating another account or resetting the existing password. In that case, use the existing administrator's email and password.
 
@@ -131,7 +131,9 @@ The registration page creates `viewer` accounts; the backend continues to accept
 
 Port 8000 is the default. If it is occupied, start FastAPI on another port, for example 8001:
 
-    .\.venv\Scripts\python.exe -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8001
+```powershell
+.\.venv\Scripts\python.exe -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8001
+```
 
 Set VITE_API_BASE_URL in frontend/.env to the same backend address (http://127.0.0.1:8001 in this example), then restart the Vite development server. CORS_ORIGINS contains frontend origins, not the backend port; change it only if the frontend itself runs on a different origin.
 
